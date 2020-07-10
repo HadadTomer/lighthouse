@@ -197,6 +197,11 @@ const expectations = [
           },
         },
       ],
+      UnloadListeners: [{
+        type: 'unload',
+        scriptId: /^\d+$/,
+        lineNumber: '>300',
+      }],
     },
     lhr: {
       requestedUrl: 'http://localhost:10200/dobetterweb/dbw_tester.html',
@@ -408,6 +413,15 @@ const expectations = [
                 element: {value: '<div id="shadow-root-container">'},
               },
             ],
+          },
+        },
+        'no-unload-listeners': {
+          score: 0,
+          details: {
+            items: [{
+              url: 'http://localhost:10200/dobetterweb/dbw_tester.html',
+              line: /^line: \d\d\d/,
+            }],
           },
         },
       },
